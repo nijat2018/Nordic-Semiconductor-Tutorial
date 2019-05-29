@@ -7,7 +7,7 @@
 
 
 # nRF51
-![nRF51 Series](res/img/nRF51_Series.png)
+![nRF51 Series](res/img/nRF51_Series.PNG)
 .....
 
 
