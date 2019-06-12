@@ -6,7 +6,8 @@
     nRF52832 - CPU
     The ARM® Cortex®-M4 processor with floating-point unit (FPU) has a 32-bit instruction set (Thumb®-2
     technology) that implements a superset of 16 and 32-bit instructions to maximize code density and
-    performance. The CPU clock speed is 64 MHz. The nRF52832 contains Flash and RAM that can be used for code and data storage.
+    performance.
+    The CPU clock speed is 64 MHz. The nRF52832 contains Flash and RAM that can be used for code and data storage.
 
 
 
