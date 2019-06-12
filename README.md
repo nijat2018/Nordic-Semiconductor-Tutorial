@@ -16,7 +16,75 @@
 
 
 
-# Dual-bank and single-bank updates
+# [nRF5_SDK](http://developer.nordicsemi.com/nRF5_SDK/)
+
+[**http://developer.nordicsemi.com/nRF5_SDK/doc/**](http://developer.nordicsemi.com/nRF5_SDK/doc/)
+
+**Pay attention which SoftDevice version is used in each SDK**
+
+
+
+
+## [nRF51 Software Development Kit 6.1.0](http://developer.nordicsemi.com/nRF5_SDK/nRF51_SDK_v6.x.x/doc/6.1.0/)
+
+
+
+
+## [nRF51 Software Development Kit 7.2.0](http://developer.nordicsemi.com/nRF5_SDK/nRF51_SDK_v7.x.x/doc/7.2.0/)
+![nRF51 Series](res/img/nRF51_SDK_v7.PNG)
+
+
+
+
+## [nRF51 Software Development Kit 8.1.0](http://developer.nordicsemi.com/nRF5_SDK/nRF51_SDK_v8.x.x/doc/8.1.0/)
+![nRF51 Series](res/img/nRF51_SDK_v8.PNG)
+
+
+
+
+## [nRF51 Software Development Kit 9.0.0](http://developer.nordicsemi.com/nRF5_SDK/nRF51_SDK_v9.x.x/doc/9.0.0/)
+![nRF51 Series](res/img/nRF51_SDK_v9.PNG)
+
+
+
+
+## [nRF51 Software Development Kit 10.0.0](http://developer.nordicsemi.com/nRF5_SDK/nRF51_SDK_v10.x.x/doc/10.0.0/)
+![nRF51 Series](res/img/nRF51_SDK_v10.PNG)
+
+
+
+
+## [nRF5 Software Development Kit v11.0.0](http://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v11.x.x/doc/11.0.0/)
+![nRF5 Series](res/img/nRF5_SDK_v11.PNG)
+
+
+
+
+## [nRF5 Software Development Kit v12.3.0](http://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v12.x.x/doc/12.3.0/)
+![nRF5 Series](res/img/nRF5_SDK_v12.PNG)
+
+
+
+
+## [nRF5 Software Development Kit v13.1.0](http://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v13.x.x/doc/13.1.0/)
+![nRF5 Series](res/img/nRF5_SDK_v13.PNG)
+
+
+
+
+## [nRF5 Software Development Kit v14.2.0](http://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v14.x.x/doc/14.2.0/)
+![nRF5 Series](res/img/nRF5_SDK_v14.PNG)
+
+
+
+
+## [nRF5 Software Development Kit v15.3.0](http://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v15.x.x/doc/15.3.0/)
+![nRF5 Series](res/img/nRF5_SDK_v15.PNG)
+
+
+
+
+# [Dual-bank and single-bank updates](http://developer.nordicsemi.com/nRF51_SDK/nRF51_SDK_v8.x.x/doc/8.0.0/s110/html/a00088.html)
 
 To safely perform a Device Firmware Update, the new firmware image should not be copied to the final location in memory until it has been validated. This ensures that only complete and valid images are activated. If an error occurs during the transfer, the firmware should not be updated.
 
