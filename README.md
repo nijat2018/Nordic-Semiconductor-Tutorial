@@ -22,6 +22,18 @@
 
 **Pay attention which SoftDevice version is used in each SDK**
 
+**Pay attention the SoftDevice is used for Central or Peripheral protocol stack solution in each SDK**
+
+**Pay attention SoftDevice memory usage in each SDK**
+
+like:
+
+![nRF52 Series](res/img/S130_Memory_resource_requirements.PNG)
+
+or
+
+![nRF51 Series](res/img/S110_Memory_resource_requirements.PNG)
+
 
 
 
