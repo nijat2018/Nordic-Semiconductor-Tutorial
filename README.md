@@ -236,7 +236,7 @@ References:
 
 [How to minimize current consumption for BLE application on nRF51822](https://devzone.nordicsemi.com/f/nordic-q-a/1657/how-to-minimize-current-consumption-for-ble-application-on-nrf51822#5187)
 
-[nRF51 Low power modes and power profiles documentation](res/nRF51 Low power modes and power profiles documentation.html)
+[nRF51 Low power modes and power profiles documentation](https://blog.csdn.net/albert12336/article/details/91967441)
 
 [What low-frequency clock sources can I use?](https://devzone.nordicsemi.com/f/nordic-q-a/27004/what-low-frequency-clock-sources-can-i-use)
 
