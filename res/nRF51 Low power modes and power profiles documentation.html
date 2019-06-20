@@ -1,53 +1,66 @@
-<div class="content">
-    <h2>nRF51 Low power modes and power profiles documentation</h2>
-    <p>The
-        <strong>low power modes</strong>
-        for the nRF51 series are System On and System Off. You can read about them in
-        the
+<p>
+    <strong>
+        <span style="color:#f33b45;">原文链接:&nbsp;</span>
         <a
-            href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822/nRF51-RM/20337">nRF51 Series Reference Manual</a>
-        v3.0 sections 12.1.5 and 12.1.7. Additional information are also given
-        <a
-            href="https://devzone.nordicsemi.com/question/1316/what-is-the-power-and-clock-model-of-peripheral-in-nrf51/">here</a>.</p>
-    <p>If you are using ANT or BLE softdevice for the nRF51, look at the "Power
-        Profiles" chapter in the Softdevice Specification document for the softdevice
-        you are using,
-        <a
-            href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822/S110-SDS/20338">S110 SDS</a>,
-        <a
-            href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822/S120-SDS/26275">S120 SDS</a>,
-        <a
-            href="https://www.nordicsemi.com/eng/nordic/Products/nRF51422/S210-SDS/20359">S210 SDS</a>
-        and
-        <a
-            href="https://www.nordicsemi.com/eng/nordic/Products/nRF51422/S310-SDS/26309">S310 SDS</a>.
-        The power profiles show what peripherals are drawing current during a radio
-        event. Current consumption numbers for the different peripherals can be found in
-        the
-        <a
-            href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822/nRF51822-PS/20339">nRF51822 PS</a>
-        v3.1. Look at table 32 for current consumption numbers for System On (I_ON) and
-        System Off (I_OFF). Table 36 shows current consumed by the radio peripheral for
-        LDO mode. For example, I_TX,0dBm is the current consumption used when radio TX
-        is enabled with 0dBm transmit power. I_RX,1M is the current consumption when
-        radio RX is enabled for BLE or ANT. Table 37 then shows the same numbers when
-        DCDC mode is enabled. LDO mode and DCDC modes are explained later in this post.</p>
-    <h2>
-        <strong>Measure current consumption</strong>
-    </h2>
-    <p>Look at the “Measuring current” section in the User guide for the
-        <a
-            href="https://www.nordicsemi.com/eng/nordic/Products/nRF51-DK/nRF51-DK-UG/38677">nRF51-DK development kit</a>
-        (<a
-            href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.nrf51/dita/nrf51/compatibility_matrix/nRF51822_ic_revision_overview.html?cp=2_0_1">third revision nRF51</a>),
-        <a
-            href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822-Evaluation-Kit/nRF51822-EK-UG/18974">evaluation kit</a>
-        (<a
-            href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.nrf51/dita/nrf51/compatibility_matrix/nRF51822_ic_revision_overview.html?cp=2_0_1">second revision nRF51</a>) or the "Current measurements" section for the
-        <a
-            href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822-Development-Kit/nRF51822-DK-UG/18799">development kit</a>
-        (<a
-            href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.nrf51/dita/nrf51/compatibility_matrix/nRF51822_ic_revision_overview.html?cp=2_0_1">second revision nRF51</a>)
+            href="https://devzone.nordicsemi.com/f/nordic-q-a/1657/how-to-minimize-current-consumption-for-ble-application-on-nrf51822#5187"
+            rel="nofollow"
+            target="_blank">
+            <span style="color:#f33b45;">How to minimize current consumption for BLE application on nRF51822</span>
+        </a>
+    </strong>
+</p>
+<hr>
+
+    <div class="content">
+        <h2>nRF51 Low power modes and power profiles documentation</h2>
+        <p>The
+            <strong>low power modes</strong>
+            for the nRF51 series are System On and System Off. You can read about them in
+            the
+            <a
+                href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822/nRF51-RM/20337">nRF51 Series Reference Manual</a>
+            v3.0 sections 12.1.5 and 12.1.7. Additional information are also given
+            <a
+                href="https://devzone.nordicsemi.com/question/1316/what-is-the-power-and-clock-model-of-peripheral-in-nrf51/">here</a>.</p>
+        <p>If you are using ANT or BLE softdevice for the nRF51, look at the "Power
+            Profiles" chapter in the Softdevice Specification document for the softdevice
+            you are using,
+            <a
+                href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822/S110-SDS/20338">S110 SDS</a>,
+            <a
+                href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822/S120-SDS/26275">S120 SDS</a>,
+            <a
+                href="https://www.nordicsemi.com/eng/nordic/Products/nRF51422/S210-SDS/20359">S210 SDS</a>
+            and
+            <a
+                href="https://www.nordicsemi.com/eng/nordic/Products/nRF51422/S310-SDS/26309">S310 SDS</a>.
+            The power profiles show what peripherals are drawing current during a radio
+            event. Current consumption numbers for the different peripherals can be found in
+            the
+            <a
+                href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822/nRF51822-PS/20339">nRF51822 PS</a>
+            v3.1. Look at table 32 for current consumption numbers for System On (I_ON) and
+            System Off (I_OFF). Table 36 shows current consumed by the radio peripheral for
+            LDO mode. For example, I_TX,0dBm is the current consumption used when radio TX
+            is enabled with 0dBm transmit power. I_RX,1M is the current consumption when
+            radio RX is enabled for BLE or ANT. Table 37 then shows the same numbers when
+            DCDC mode is enabled. LDO mode and DCDC modes are explained later in this post.</p>
+        <h2>
+            <strong>Measure current consumption</strong>
+        </h2>
+        <p>Look at the “Measuring current” section in the User guide for the
+            <a
+                href="https://www.nordicsemi.com/eng/nordic/Products/nRF51-DK/nRF51-DK-UG/38677">nRF51-DK development kit</a>
+            (<a
+                href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.nrf51/dita/nrf51/compatibility_matrix/nRF51822_ic_revision_overview.html?cp=2_0_1">third revision nRF51</a>),
+            <a
+                href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822-Evaluation-Kit/nRF51822-EK-UG/18974">evaluation kit</a>
+            (<a
+                href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.nrf51/dita/nrf51/compatibility_matrix/nRF51822_ic_revision_overview.html?cp=2_0_1">second revision nRF51</a>) or the "Current measurements" section for the
+            <a
+                href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822-Development-Kit/nRF51822-DK-UG/18799">development kit</a>
+            (<a
+                href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.nrf51/dita/nrf51/compatibility_matrix/nRF51822_ic_revision_overview.html?cp=2_0_1">second revision nRF51</a>)
 to find out how to set up the kit in order to measure current. In addition to
 the text in the user guide, make sure you power-reset the nRF51 after flashing
 your firmware to it. After flashing, the nRF51 stays in debugger-mode, which
@@ -55,165 +68,165 @@ consumes excessive current (~1mA). When the nRF51 is power-reset, it will enter
 normal-mode where actual current consumption can be measured. It is also
 possible to use nrfjprog.exe (part of nrf Tools) with the command "nrfjprog
 --pinreset" in order to enter normal mode.</p>
-    <p>To test current consumption for the nRF51 low power modes without softdevice,
-        try out the
-        <a
-            href="https://github.com/NordicSemiconductor/nrf51-powerdown-examples/tree/master/system-off-wakeup-on-gpio">System Off mode example</a>
-        and the
-        <a
-            href="https://github.com/NordicSemiconductor/nrf51-powerdown-examples/tree/master/system-on-wakeup-on-gpio">System On mode example.</a>. Expected current consumption for the
-        <a
-            href="https://github.com/NordicSemiconductor/nrf51-powerdown-examples/tree/master/system-off-wakeup-on-gpio">System Off mode example</a>
-        example is 0.6uA with no RAM retention and 2.6uA for the
-        <a
-            href="https://github.com/NordicSemiconductor/nrf51-powerdown-examples/tree/master/system-on-wakeup-on-gpio">System On mode example</a>.
-        To initially test current consumption with these examples, disconnect the all
-        external circuits from GPIO pins as well as the debugger/programmer. To run
-        those examples on evaluation kit (PCA10001 boards) look at these threads
-        <a
-            href="https://devzone.nordicsemi.com/question/12722/current-and-power-measurement-for-nrf51822-using-evaluation-kit/">(1)</a>
-        <a
-            href="https://devzone.nordicsemi.com/question/21549/how-to-port-nrf51822-development-kit-examples-to-the-nrf51822-evaluation-kit/?answer=21550#post-id-21550">(2)</a>
-    </p>
-    <p>To test current consumption for a BLE application, use the
-        <a
-            href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.sdk51.v10.0.0/ble_sdk_app_pwr_mgmt.html?cp=4_0_1_4_2_2_14">Power profiling application</a>
-        in the nRF51 SDK, or e.g. the
-        <a
-            href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.sdk51.v10.0.0/ble_sdk_app_hrs.html?cp=4_0_1_4_2_2_8">heart rate application</a>. In a BLE application, the radio is enabled periodically to transmit
-        <a
-            href="https://devzone.nordicsemi.com/blogs/782/bluetooth-smart-and-the-nordics-softdevices-part-1/">advertising packets</a>
-        or connection packets in so called BLE advertising/connection events. Between
-        BLE advertising/connection events, the nRF51 should be in System On low power
-        mode and should consume ~4uA. It is however hard to see the current consumption
-        between those events on a multimeter if the advertising/connection interval (the
-        time between advertising/connection events) is small. If you modify the
-        application to have long advertising interval, the reading on your multimeter
-        should stabilize between advertising events, and you should be able to read the
-        expected ~4uA. The advertising interval can be adjusted from 20ms to 10.24s, and
-        can be set to e.g. 4 seconds in the power profiling example by modifying the
-        following define at the top of the main.c file:</p>
-    <div
-        class="content-scrollable-wrapper"
-        style="max-width: 100%; overflow: auto; max-height: none;">
-        <pre><code>#define APP_CFG_CONNECTION_INTERVAL   4000
-</code></pre>
-    </div>
-    <p>To test the power profiling application, press Button 1 on the nRF51-DK
-        (PCA10028) in order start the advertising after you upload the code to the
-        nRF51-DK board and power-reset it. Note that when connection is established, the
-        connection interval is determined by the central device which is normally
-        relatively short. Since the power profiling application does not send connection
-        parameter update request to the central, the connection interval stays short and
-        current consumption is therefore relatively high when connected.</p>
-    <p>
-        <strong>Troubleshooting</strong>
-        <br>
-            nRF51 consumes excessive current after entering either System On low power mode
-            or System Off mode, the most likely reasons for that are:</p>
-        <ul>
-            <li>The nRF51 is in debug mode. Solution: Power reset the chip in order to enter
-                normal mode.</li>
-            <li>The nRF51 remains in debug mode after power reset on custom board. Solution:
-                connect an external resistor to SWDCLK pin as described on
-                <a
-                    href="https://devzone.nordicsemi.com/question/17282/nrf51822-swdioswdclk-internal-pull-resistors/">this thread</a>
-            </li>
-            <li>There is a leakage current on GPIO or SWD pins. Solution: Disconnect
-                everything from debug interface and GPIO pins. To disconnect the debug interface
-                on PCA10001 boards set the SW4 switch on your PCA10001 board to OFF</li>
-            <li>You have configured GPIO pin as input with no pull. For solution, see answer on
-                <a href="https://devzone.nordicsemi.com/question/21598/system-power-off/">this thread</a>
-            </li>
-            <li>You are using evaluation kit or development kit and LEDs are connected on
-                your board. Solution: Disconnect the LEDs or disable them in software. When
-                using nRF51-DK or nRF51-Dongle, LEDs are not included in the current
-                measurement.</li>
-            <li>You have enabled a peripheral before entering System On low power mode.
-                Solution: Disable the peripheral in question before entering System On mode. For
-                System Off mode this is not needed as all peripherals are powered off in System
-                Off mode.</li>
-            <li>You have explicitly enabled "Constant Latency mode". Solution: Enter low
-                power mode before entering System On low power mode with
-                NRF_POWER-&gt;TASKS_LOWPWR = 1;</li>
-            <li>You are using the
-                <a
-                    href="https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-Bluetooth-low-energy/nRF51822-Bluetooth-Smart-Beacon-Kit">nRF51822 Beacon kit</a>. See solution on
-                <a
-                    href="https://devzone.nordicsemi.com/question/32497/power-consumption-of-ble_app_beacon/?answer=32675#post-id-32675">this thread</a>.</li>
-            <li>You have enabled GPIOTE in event or task mode. For solution, see
-                <a
-                    href="https://devzone.nordicsemi.com/question/1805/current-consumption-when-using-rtc-ppi-and-gpiote/?answer=18533#post-id-18533">this thread</a>.</li>
-        </ul>
-        <h2>
-            <strong>Calcualate/Estimate current consumption</strong>
-        </h2>
-        <p>As for now, we do not have an online tool to calculate current consumption
-            for the nRF51 series. However, there are some common scenarios given in
+        <p>To test current consumption for the nRF51 low power modes without softdevice,
+            try out the
             <a
-                href="https://devzone.nordicsemi.com/blogs/679/nrf51-current-consumption-for-common-scenarios/">this blog post</a>,
-            both when advertising and when in a connection. If you need current consumption
-            calculation for a specific profile, please send your profile to us and we can
-            calculate expected current consumption for you. You can do that by registering a
-            support case on www.nordicsemi.com. Go to "My Page" and select "REGISTER NEW
-            CASE".
-            <strong>The profile parameters that are needed are:</strong>
+                href="https://github.com/NordicSemiconductor/nrf51-powerdown-examples/tree/master/system-off-wakeup-on-gpio">System Off mode example</a>
+            and the
+            <a
+                href="https://github.com/NordicSemiconductor/nrf51-powerdown-examples/tree/master/system-on-wakeup-on-gpio">System On mode example.</a>. Expected current consumption for the
+            <a
+                href="https://github.com/NordicSemiconductor/nrf51-powerdown-examples/tree/master/system-off-wakeup-on-gpio">System Off mode example</a>
+            example is 0.6uA with no RAM retention and 2.6uA for the
+            <a
+                href="https://github.com/NordicSemiconductor/nrf51-powerdown-examples/tree/master/system-on-wakeup-on-gpio">System On mode example</a>.
+            To initially test current consumption with these examples, disconnect the all
+            external circuits from GPIO pins as well as the debugger/programmer. To run
+            those examples on evaluation kit (PCA10001 boards) look at these threads
+            <a
+                href="https://devzone.nordicsemi.com/question/12722/current-and-power-measurement-for-nrf51822-using-evaluation-kit/">(1)</a>
+            <a
+                href="https://devzone.nordicsemi.com/question/21549/how-to-port-nrf51822-development-kit-examples-to-the-nrf51822-evaluation-kit/?answer=21550#post-id-21550">(2)</a>
         </p>
-        <ul>
-            <li>
-                <div
-                    class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
-                    style="max-width: 100%; overflow: auto; max-height: 413.6px;">
-                    <pre><code>  Accuracy of 32kHz crystal or if you are using internal 32kHz RC.
-</code></pre>
-                </div>
-            </li>
-            <li>Supply voltage</li>
-            <li>TX power</li>
-        </ul>
-        <p>
-            <strong>For calculating current consumption during advertising:</strong>
-        </p>
-        <ul>
-            <li>Advertising interval</li>
-            <li>Amount of advertising payload data in bytes for each advertising packet</li>
-            <li>Continuously advertising or periodically advertising.</li>
-            <li>Application processing time for each advertising interval</li>
-        </ul>
-        <p>
-            <strong>For calculating current consumption during connection:</strong>
-        </p>
-        <ul>
-            <li>Connection interval</li>
-            <li>Slave latency</li>
-            <li>RX payload in each packet</li>
-            <li>TX payload in each packet</li>
-            <li>Number of RX packets to receive in each connection interval (max 6)</li>
-            <li>Number of TX packets to send in each connection interval (max 6)</li>
-            <li>32kHz master clock accuracy</li>
-            <li>Application processing time in each connection interval</li>
-        </ul>
-        <p>For calculating current consumption from SPI, UART or TWI transmission:</p>
-        <ul>
-            <li>What interface is used, SPI, UART or TWI</li>
-            <li>Transmission speed</li>
-            <li>Data amount</li>
-            <li>Transmitting, receiving, or both</li>
-        </ul>
-        <p>Also specify use of other peripherals, if any, e.g. TIMER, GPIOTE, etc.</p>
-        <p>Please provide as much as possible of these parameters above to enable us to
-            measure the current consumption for your profile.</p>
-        <h2>
-            <strong>Estimate battery life</strong>
-        </h2>
-        <p>Battery life can be calculated when you know the average current consumption
-            of the device and the energy capacity of your battery. Below are some
-            calculation examples for battery lifetime for batteries with different energy
-            capacity:</p>
+        <p>To test current consumption for a BLE application, use the
+            <a
+                href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.sdk51.v10.0.0/ble_sdk_app_pwr_mgmt.html?cp=4_0_1_4_2_2_14">Power profiling application</a>
+            in the nRF51 SDK, or e.g. the
+            <a
+                href="http://infocenter.nordicsemi.com/topic/com.nordic.infocenter.sdk51.v10.0.0/ble_sdk_app_hrs.html?cp=4_0_1_4_2_2_8">heart rate application</a>. In a BLE application, the radio is enabled periodically to transmit
+            <a
+                href="https://devzone.nordicsemi.com/blogs/782/bluetooth-smart-and-the-nordics-softdevices-part-1/">advertising packets</a>
+            or connection packets in so called BLE advertising/connection events. Between
+            BLE advertising/connection events, the nRF51 should be in System On low power
+            mode and should consume ~4uA. It is however hard to see the current consumption
+            between those events on a multimeter if the advertising/connection interval (the
+            time between advertising/connection events) is small. If you modify the
+            application to have long advertising interval, the reading on your multimeter
+            should stabilize between advertising events, and you should be able to read the
+            expected ~4uA. The advertising interval can be adjusted from 20ms to 10.24s, and
+            can be set to e.g. 4 seconds in the power profiling example by modifying the
+            following define at the top of the main.c file:</p>
         <div
-            class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
-            style="max-width: 100%; overflow: auto; max-height: 413.6px;">
-            <pre><code>Average current consumption of device: 20 uA
+            class="content-scrollable-wrapper"
+            style="max-width: 100%; overflow: auto; max-height: none;">
+            <pre><code>#define APP_CFG_CONNECTION_INTERVAL   4000
+</code></pre>
+        </div>
+        <p>To test the power profiling application, press Button 1 on the nRF51-DK
+            (PCA10028) in order start the advertising after you upload the code to the
+            nRF51-DK board and power-reset it. Note that when connection is established, the
+            connection interval is determined by the central device which is normally
+            relatively short. Since the power profiling application does not send connection
+            parameter update request to the central, the connection interval stays short and
+            current consumption is therefore relatively high when connected.</p>
+        <p>
+            <strong>Troubleshooting</strong>
+            <br>
+                nRF51 consumes excessive current after entering either System On low power mode
+                or System Off mode, the most likely reasons for that are:</p>
+            <ul>
+                <li>The nRF51 is in debug mode. Solution: Power reset the chip in order to enter
+                    normal mode.</li>
+                <li>The nRF51 remains in debug mode after power reset on custom board. Solution:
+                    connect an external resistor to SWDCLK pin as described on
+                    <a
+                        href="https://devzone.nordicsemi.com/question/17282/nrf51822-swdioswdclk-internal-pull-resistors/">this thread</a>
+                </li>
+                <li>There is a leakage current on GPIO or SWD pins. Solution: Disconnect
+                    everything from debug interface and GPIO pins. To disconnect the debug interface
+                    on PCA10001 boards set the SW4 switch on your PCA10001 board to OFF</li>
+                <li>You have configured GPIO pin as input with no pull. For solution, see answer on
+                    <a href="https://devzone.nordicsemi.com/question/21598/system-power-off/">this thread</a>
+                </li>
+                <li>You are using evaluation kit or development kit and LEDs are connected on
+                    your board. Solution: Disconnect the LEDs or disable them in software. When
+                    using nRF51-DK or nRF51-Dongle, LEDs are not included in the current
+                    measurement.</li>
+                <li>You have enabled a peripheral before entering System On low power mode.
+                    Solution: Disable the peripheral in question before entering System On mode. For
+                    System Off mode this is not needed as all peripherals are powered off in System
+                    Off mode.</li>
+                <li>You have explicitly enabled "Constant Latency mode". Solution: Enter low
+                    power mode before entering System On low power mode with
+                    NRF_POWER-&gt;TASKS_LOWPWR = 1;</li>
+                <li>You are using the
+                    <a
+                        href="https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-Bluetooth-low-energy/nRF51822-Bluetooth-Smart-Beacon-Kit">nRF51822 Beacon kit</a>. See solution on
+                    <a
+                        href="https://devzone.nordicsemi.com/question/32497/power-consumption-of-ble_app_beacon/?answer=32675#post-id-32675">this thread</a>.</li>
+                <li>You have enabled GPIOTE in event or task mode. For solution, see
+                    <a
+                        href="https://devzone.nordicsemi.com/question/1805/current-consumption-when-using-rtc-ppi-and-gpiote/?answer=18533#post-id-18533">this thread</a>.</li>
+            </ul>
+            <h2>
+                <strong>Calcualate/Estimate current consumption</strong>
+            </h2>
+            <p>As for now, we do not have an online tool to calculate current consumption
+                for the nRF51 series. However, there are some common scenarios given in
+                <a
+                    href="https://devzone.nordicsemi.com/blogs/679/nrf51-current-consumption-for-common-scenarios/">this blog post</a>,
+                both when advertising and when in a connection. If you need current consumption
+                calculation for a specific profile, please send your profile to us and we can
+                calculate expected current consumption for you. You can do that by registering a
+                support case on www.nordicsemi.com. Go to "My Page" and select "REGISTER NEW
+                CASE".
+                <strong>The profile parameters that are needed are:</strong>
+            </p>
+            <ul>
+                <li>
+                    <div
+                        class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
+                        style="max-width: 100%; overflow: auto; max-height: 413.6px;">
+                        <pre><code>  Accuracy of 32kHz crystal or if you are using internal 32kHz RC.
+</code></pre>
+                    </div>
+                </li>
+                <li>Supply voltage</li>
+                <li>TX power</li>
+            </ul>
+            <p>
+                <strong>For calculating current consumption during advertising:</strong>
+            </p>
+            <ul>
+                <li>Advertising interval</li>
+                <li>Amount of advertising payload data in bytes for each advertising packet</li>
+                <li>Continuously advertising or periodically advertising.</li>
+                <li>Application processing time for each advertising interval</li>
+            </ul>
+            <p>
+                <strong>For calculating current consumption during connection:</strong>
+            </p>
+            <ul>
+                <li>Connection interval</li>
+                <li>Slave latency</li>
+                <li>RX payload in each packet</li>
+                <li>TX payload in each packet</li>
+                <li>Number of RX packets to receive in each connection interval (max 6)</li>
+                <li>Number of TX packets to send in each connection interval (max 6)</li>
+                <li>32kHz master clock accuracy</li>
+                <li>Application processing time in each connection interval</li>
+            </ul>
+            <p>For calculating current consumption from SPI, UART or TWI transmission:</p>
+            <ul>
+                <li>What interface is used, SPI, UART or TWI</li>
+                <li>Transmission speed</li>
+                <li>Data amount</li>
+                <li>Transmitting, receiving, or both</li>
+            </ul>
+            <p>Also specify use of other peripherals, if any, e.g. TIMER, GPIOTE, etc.</p>
+            <p>Please provide as much as possible of these parameters above to enable us to
+                measure the current consumption for your profile.</p>
+            <h2>
+                <strong>Estimate battery life</strong>
+            </h2>
+            <p>Battery life can be calculated when you know the average current consumption
+                of the device and the energy capacity of your battery. Below are some
+                calculation examples for battery lifetime for batteries with different energy
+                capacity:</p>
+            <div
+                class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
+                style="max-width: 100%; overflow: auto; max-height: 413.6px;">
+                <pre><code>Average current consumption of device: 20 uA
 Energy capacity: 220 mAh (typical CR2032 coin cell battery)
 Battery lifetime: 0,22 Ah / 0,00002 A = 11,000 hours = 458 days
 
@@ -225,323 +238,323 @@ Average current consumption of device: 100 uA
 Energy capacity: 1000 mAh
 Battery lifetime: 1 Ah / 0,0001 A = 10,000 hours = 417 days
 </code></pre>
-        </div>
-        <h2>
-            <strong>Choice of 32 kHz clock source</strong>
-        </h2>
-        <p>Also, in your design you should consider what low frequency clock source to
-            use. As the nRF51 reference manual states there is a choice of three low
-            frequency clock sources, external crystal, internal RC and the synthesized
-            clock. Using the synthesized clock is of really no use in terms of current
-            consumption since it will require the 16 MHz clock to be constantly enabled.
-            Using a high accuracy external crystal is clearly the best choice in terms of
-            current consumption.</p>
-        <p>Another choice is to use the internal 32kHz RC oscillator and calibrate every
-            4 seconds to maintain accuracy within 250 ppm. A motivation for using the
-            internal 32kHz RC is either to decrease BOM or to save space on PCB. Using
-            internal low frequency 32kHz RC clock instead of 20ppm external crystal will add
-            around 10 uA current consumption compared to 20ppm external crystal. The
-            internal 32kHz RC needs to be calibrated every 4 seconds and obtains frequency
-            tolerance of 250ppm.</p>
-        <p>When initialising the softdevice with ble_stack_init() function call in the
-            main function, select the NRF_CLOCK_LFCLKSRC_RC_250_PPM_TEMP_4000MS_CALIBRATION
-            option when using the internal RC clock. For further information on choice of
-            32kHz clock source with a softdevice, look at
-            <a
-                href="https://devzone.nordicsemi.com/question/953/what-low-frequency-clock-sources-can-i-use/">this thread</a>.</p>
-        <h2>
-            <strong>Choice of 16 MHz external crystal</strong>
-        </h2>
-        <p>To minimize current consumption, choose 16MHz external crystal with minimal
-            “startup” current consumption. For this purpose you should choose a crystal with
-            low load capacitance, i.e. around 9 pF instead of the specified maximum of 16 pF
-            for the nRF51.</p>
-        <p>For a general guide on 16MHz clock sources for the nRF51, look at
-            <a
-                href="https://devzone.nordicsemi.com/question/18096/what-is-the-high-frequency-clock-model-for-nrf51/?answer=18097#post-id-18097">this thread</a>.</p>
-        <h2>
-            <strong>Use of timers</strong>
-        </h2>
-        <p>If using BLE, use the application timers that are generally used in the BLE
-            examples in the SDK. Those use the RTC1 in the background which is very power
-            efficient. Look at i.e. the ble_app_hrs example which has several application
-            timers implemented.</p>
-        <h2>
-            <strong>Low power mode with BLE softdevice</strong>
-        </h2>
-        <p>Most BLE examples in the SDK will include the power_manage call in the main
-            function. This call uses the
-            <a
-                href="https://developer.nordicsemi.com/nRF51_SDK/nRF51_SDK_v8.x.x/doc/8.0.0/s110/html/a01073.html#ga11d88d38ac99fb72cde74c9385d36433">sd_app_event_wait()</a>
-            softdevice call (or power_manage()) which enables the System On low power mode,
-            which keeps current consumption to a minimum.</p>
-        <p>To put a device into System Off mode when using the softdevice, call
-            <a
-                href="http://developer.nordicsemi.com/nRF51_SDK/doc/7.2.0/s110/html/a01075.html#ga774947ee0e200456ea3aec3fc7f8bd6b">sd_power_system_off()</a>
-            function.</p>
-        <p>The softdevice uses RTC0 to keep track of time and to know when to wake up
-            for the next BLE connection event. The RTC0 will eventually wake the chip up and
-            the softdevice will carry out the action needed for the BLE connection event,
-            which includes receiving and sending packages. When it is done, execution will
-            continue where it left off in the application after sd_app_event_wait() command.
-            Normally in BLE examples in the SDK, the sd_app_event_wait() command is inside
-            the main loop, therefore code residing in the main loop will execute once and
-            then the sd_app_event_wait() is called again and the chip will sleep again in
-            System On low power mode until the next BLE connection event.</p>
-        <p>What sd_app_event_wait() actually does is to disable the CPU. All peripherals
-            (e.g. SPI, UART, TIMER, ...) that are enabled before calling sd_app_event_wait()
-            will still be enabled. The CPU will actually wake up on any interrupt, i.e. it
-            will wake up for BLE connection/advertising events, softdevice callbacks or
-            peripheral interrupts (e.g. SPI, UART, TIMER, ... interrupts).</p>
-        <h2>
-            <strong>Tuning connection parameters</strong>
-        </h2>
-        <p>Control of current consupmtion during connection is mainly a question of
-            tuning the Bluetooth connection parameters. If your "connection interval"
-            parameter is large, communication will be slow and your device will consume
-            little current during connection and packet delay will be relatively large.
-            Setting short connection interval will enable larger throughput and relatively
-            short packet delay but your device will consume more current. "Slave latency" is
-            another bluetooth parameter that allows the device to not respond to number of
-            packets sent from the host. This will decrease current consumption of the device
-            while still allowing data bursts with high thoroughput.</p>
-        <p>A typical scenario for transmitting data on a button press is to have BLE
-            connection with relatively low connection interval but with high slave latency.
-            Low connection interval will enable your device to send packets frequently, i.e.
-            to have a good response on a button press. High slave latency will allow your
-            device to not send packets on every connection event, thereby saving current.</p>
-        <p>“Slave latency” is a special BLE connection parameter. Information about the
-            slave latency parameter is found on the
-            <a
-                href="http://developer.bluetooth.org/DevelopmentResources/Pages/BLE-Optimizations.asp">Bluetooth Developer site</a>, A quote from this site about slave latency:</p>
-        <p>
-            <em>
-                <strong>Slave Latency</strong>
-                – Slave latency allows a slave to use a reduced number of connection events. The
-                connSlaveLatency parameter defines the number of consecutive connection events
-                that the slave device is not required to listen for the master. As a result,
-                slave device can skip a number of connection events if it does not have
-                additional data resulting in power savings.</em>
-        </p>
-        <p>For example, for an energy sensitive application, you choose relatively long
-            connection interval, e.g. 4 seconds, in order to save energy of the peripheral.
-            This will make the host/master send a packet every 4 seconds, also requesting
-            the slave/peripheral to respond with a packet transmission (to tell the master
-            that the slave is alive, which prevents link loss) which will also contain data
-            if the slave/peripheral has some data to send. An alternative would be to create
-            a connection interval of 1 second and have a slave latency of 3. This would make
-            the master send packets to the slave every second but the slave would be
-            obligated to respond only to every fourth packet. This will therefore not create
-            an increase in current consumption for the slave compared to the 4 second
-            connection interval, but instead will decrease slave data delay and enable data
-            bursts as well from the slave with higher throughput.</p>
-        <p>If you are to connect with an iPhone there are however constraints from Apple
-            on how connection parameters can be tuned.
-            <a
-                href="https://developer.apple.com/hardwaredrivers/BluetoothDesignGuidelines.pdf">This apple document</a>
-            states the following in the section about “Connection Parameters”: The
-            connection parameter request may be rejected if it does not comply with all of
-            these rules:</p>
-        <div
-            class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
-            style="max-width: 100%; overflow: auto; max-height: 413.6px;">
-            <pre><code>Interval Max * (Slave Latency + 1) ≤ 2 seconds
+            </div>
+            <h2>
+                <strong>Choice of 32 kHz clock source</strong>
+            </h2>
+            <p>Also, in your design you should consider what low frequency clock source to
+                use. As the nRF51 reference manual states there is a choice of three low
+                frequency clock sources, external crystal, internal RC and the synthesized
+                clock. Using the synthesized clock is of really no use in terms of current
+                consumption since it will require the 16 MHz clock to be constantly enabled.
+                Using a high accuracy external crystal is clearly the best choice in terms of
+                current consumption.</p>
+            <p>Another choice is to use the internal 32kHz RC oscillator and calibrate every
+                4 seconds to maintain accuracy within 250 ppm. A motivation for using the
+                internal 32kHz RC is either to decrease BOM or to save space on PCB. Using
+                internal low frequency 32kHz RC clock instead of 20ppm external crystal will add
+                around 10 uA current consumption compared to 20ppm external crystal. The
+                internal 32kHz RC needs to be calibrated every 4 seconds and obtains frequency
+                tolerance of 250ppm.</p>
+            <p>When initialising the softdevice with ble_stack_init() function call in the
+                main function, select the NRF_CLOCK_LFCLKSRC_RC_250_PPM_TEMP_4000MS_CALIBRATION
+                option when using the internal RC clock. For further information on choice of
+                32kHz clock source with a softdevice, look at
+                <a
+                    href="https://devzone.nordicsemi.com/question/953/what-low-frequency-clock-sources-can-i-use/">this thread</a>.</p>
+            <h2>
+                <strong>Choice of 16 MHz external crystal</strong>
+            </h2>
+            <p>To minimize current consumption, choose 16MHz external crystal with minimal
+                “startup” current consumption. For this purpose you should choose a crystal with
+                low load capacitance, i.e. around 9 pF instead of the specified maximum of 16 pF
+                for the nRF51.</p>
+            <p>For a general guide on 16MHz clock sources for the nRF51, look at
+                <a
+                    href="https://devzone.nordicsemi.com/question/18096/what-is-the-high-frequency-clock-model-for-nrf51/?answer=18097#post-id-18097">this thread</a>.</p>
+            <h2>
+                <strong>Use of timers</strong>
+            </h2>
+            <p>If using BLE, use the application timers that are generally used in the BLE
+                examples in the SDK. Those use the RTC1 in the background which is very power
+                efficient. Look at i.e. the ble_app_hrs example which has several application
+                timers implemented.</p>
+            <h2>
+                <strong>Low power mode with BLE softdevice</strong>
+            </h2>
+            <p>Most BLE examples in the SDK will include the power_manage call in the main
+                function. This call uses the
+                <a
+                    href="https://developer.nordicsemi.com/nRF51_SDK/nRF51_SDK_v8.x.x/doc/8.0.0/s110/html/a01073.html#ga11d88d38ac99fb72cde74c9385d36433">sd_app_event_wait()</a>
+                softdevice call (or power_manage()) which enables the System On low power mode,
+                which keeps current consumption to a minimum.</p>
+            <p>To put a device into System Off mode when using the softdevice, call
+                <a
+                    href="http://developer.nordicsemi.com/nRF51_SDK/doc/7.2.0/s110/html/a01075.html#ga774947ee0e200456ea3aec3fc7f8bd6b">sd_power_system_off()</a>
+                function.</p>
+            <p>The softdevice uses RTC0 to keep track of time and to know when to wake up
+                for the next BLE connection event. The RTC0 will eventually wake the chip up and
+                the softdevice will carry out the action needed for the BLE connection event,
+                which includes receiving and sending packages. When it is done, execution will
+                continue where it left off in the application after sd_app_event_wait() command.
+                Normally in BLE examples in the SDK, the sd_app_event_wait() command is inside
+                the main loop, therefore code residing in the main loop will execute once and
+                then the sd_app_event_wait() is called again and the chip will sleep again in
+                System On low power mode until the next BLE connection event.</p>
+            <p>What sd_app_event_wait() actually does is to disable the CPU. All peripherals
+                (e.g. SPI, UART, TIMER, ...) that are enabled before calling sd_app_event_wait()
+                will still be enabled. The CPU will actually wake up on any interrupt, i.e. it
+                will wake up for BLE connection/advertising events, softdevice callbacks or
+                peripheral interrupts (e.g. SPI, UART, TIMER, ... interrupts).</p>
+            <h2>
+                <strong>Tuning connection parameters</strong>
+            </h2>
+            <p>Control of current consupmtion during connection is mainly a question of
+                tuning the Bluetooth connection parameters. If your "connection interval"
+                parameter is large, communication will be slow and your device will consume
+                little current during connection and packet delay will be relatively large.
+                Setting short connection interval will enable larger throughput and relatively
+                short packet delay but your device will consume more current. "Slave latency" is
+                another bluetooth parameter that allows the device to not respond to number of
+                packets sent from the host. This will decrease current consumption of the device
+                while still allowing data bursts with high thoroughput.</p>
+            <p>A typical scenario for transmitting data on a button press is to have BLE
+                connection with relatively low connection interval but with high slave latency.
+                Low connection interval will enable your device to send packets frequently, i.e.
+                to have a good response on a button press. High slave latency will allow your
+                device to not send packets on every connection event, thereby saving current.</p>
+            <p>“Slave latency” is a special BLE connection parameter. Information about the
+                slave latency parameter is found on the
+                <a
+                    href="http://developer.bluetooth.org/DevelopmentResources/Pages/BLE-Optimizations.asp">Bluetooth Developer site</a>, A quote from this site about slave latency:</p>
+            <p>
+                <em>
+                    <strong>Slave Latency</strong>
+                    – Slave latency allows a slave to use a reduced number of connection events. The
+                    connSlaveLatency parameter defines the number of consecutive connection events
+                    that the slave device is not required to listen for the master. As a result,
+                    slave device can skip a number of connection events if it does not have
+                    additional data resulting in power savings.</em>
+            </p>
+            <p>For example, for an energy sensitive application, you choose relatively long
+                connection interval, e.g. 4 seconds, in order to save energy of the peripheral.
+                This will make the host/master send a packet every 4 seconds, also requesting
+                the slave/peripheral to respond with a packet transmission (to tell the master
+                that the slave is alive, which prevents link loss) which will also contain data
+                if the slave/peripheral has some data to send. An alternative would be to create
+                a connection interval of 1 second and have a slave latency of 3. This would make
+                the master send packets to the slave every second but the slave would be
+                obligated to respond only to every fourth packet. This will therefore not create
+                an increase in current consumption for the slave compared to the 4 second
+                connection interval, but instead will decrease slave data delay and enable data
+                bursts as well from the slave with higher throughput.</p>
+            <p>If you are to connect with an iPhone there are however constraints from Apple
+                on how connection parameters can be tuned.
+                <a
+                    href="https://developer.apple.com/hardwaredrivers/BluetoothDesignGuidelines.pdf">This apple document</a>
+                states the following in the section about “Connection Parameters”: The
+                connection parameter request may be rejected if it does not comply with all of
+                these rules:</p>
+            <div
+                class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
+                style="max-width: 100%; overflow: auto; max-height: 413.6px;">
+                <pre><code>Interval Max * (Slave Latency + 1) ≤ 2 seconds
 Interval Min ≥ 20 ms
 Interval Min + 20 ms ≤ Interval Max
 Slave Latency ≤ 4
 connSupervisionTimeout ≤ 6 seconds
 Interval Max * (Slave Latency + 1) * 3 &lt; connSupervisionTimeout
 </code></pre>
-        </div>
-        <p>To modify the connection interval in any BLE example in the nRF51 SDK, adjust
-            the following constants that are located at the top of the main file:</p>
-        <div
-            class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
-            style="max-width: 100%; overflow: auto; max-height: 413.6px;">
-            <pre><code>#define MIN_CONN_INTERVAL                    MSEC_TO_UNITS(500, UNIT_1_25_MS)           /**&lt; Minimum acceptable connection interval (0.5 seconds). */
+            </div>
+            <p>To modify the connection interval in any BLE example in the nRF51 SDK, adjust
+                the following constants that are located at the top of the main file:</p>
+            <div
+                class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
+                style="max-width: 100%; overflow: auto; max-height: 413.6px;">
+                <pre><code>#define MIN_CONN_INTERVAL                    MSEC_TO_UNITS(500, UNIT_1_25_MS)           /**&lt; Minimum acceptable connection interval (0.5 seconds). */
 #define MAX_CONN_INTERVAL                    MSEC_TO_UNITS(1000, UNIT_1_25_MS)          /**&lt; Maximum acceptable connection interval (1 second). */
 </code></pre>
-        </div>
-        <p>which means that the connection interval will be 0.5-1.0 seconds, but it is
-            really up to the central device to set the connection interval. More information
-            on the connection parameter update procedure is found on
-            <a
-                href="https://devzone.nordicsemi.com/question/12545/update-connection-parameter-programmatically/?answer=12551#post-id-12551">this thread</a>. Similarly, the slave latency is adjusted by modifying this constant:</p>
-        <div
-            class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
-            style="max-width: 100%; overflow: auto; max-height: 413.6px;">
-            <pre><code>#define SLAVE_LATENCY                        0                                          /**&lt; Slave latency. */
+            </div>
+            <p>which means that the connection interval will be 0.5-1.0 seconds, but it is
+                really up to the central device to set the connection interval. More information
+                on the connection parameter update procedure is found on
+                <a
+                    href="https://devzone.nordicsemi.com/question/12545/update-connection-parameter-programmatically/?answer=12551#post-id-12551">this thread</a>. Similarly, the slave latency is adjusted by modifying this constant:</p>
+            <div
+                class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
+                style="max-width: 100%; overflow: auto; max-height: 413.6px;">
+                <pre><code>#define SLAVE_LATENCY                        0                                          /**&lt; Slave latency. */
 </code></pre>
-        </div>
-        <h2>
-            <strong>Tuning Advertising parameters</strong>
-        </h2>
-        <p>Current consumption during advertising mainly depends on the advertising
-            interval, which is adjusted by modifying the following constant:</p>
-        <div
-            class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
-            style="max-width: 100%; overflow: auto; max-height: 413.6px;">
-            <pre><code>#define APP_ADV_INTERVAL                     40                                         /**&lt; The advertising interval (in units of 0.625 ms. This value corresponds to 25 ms). */
+            </div>
+            <h2>
+                <strong>Tuning Advertising parameters</strong>
+            </h2>
+            <p>Current consumption during advertising mainly depends on the advertising
+                interval, which is adjusted by modifying the following constant:</p>
+            <div
+                class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
+                style="max-width: 100%; overflow: auto; max-height: 413.6px;">
+                <pre><code>#define APP_ADV_INTERVAL                     40                                         /**&lt; The advertising interval (in units of 0.625 ms. This value corresponds to 25 ms). */
 </code></pre>
-        </div>
-        <p>The longer the advertising interval the less current will the device consume
-            during advertising. However, when connecting to a central device, increasing the
-            advertising interval will normally not decrease current consumption as it will
-            take longer for the central device to discover the peripheral device. The result
-            is that current consumption will be lower for the peripheral during advertising,
-            but it will normally have to advertise for a longer time, therefore, energy
-            consumed before connecting to the central will generally be more or less the
-            same as when short advertising interval is chosen.</p>
-        <p>For some scenarios, it is convenient to advertise periodically, and that will
-            save current instead of having the device advertise continuously. The timeout
-            for the advertising can be adjusted by modifying the following parameter:</p>
-        <div
-            class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
-            style="max-width: 100%; overflow: auto; max-height: 413.6px;">
-            <pre><code>#define APP_ADV_TIMEOUT_IN_SECONDS           180                                        /**&lt; The advertising timeout in units of seconds. */
+            </div>
+            <p>The longer the advertising interval the less current will the device consume
+                during advertising. However, when connecting to a central device, increasing the
+                advertising interval will normally not decrease current consumption as it will
+                take longer for the central device to discover the peripheral device. The result
+                is that current consumption will be lower for the peripheral during advertising,
+                but it will normally have to advertise for a longer time, therefore, energy
+                consumed before connecting to the central will generally be more or less the
+                same as when short advertising interval is chosen.</p>
+            <p>For some scenarios, it is convenient to advertise periodically, and that will
+                save current instead of having the device advertise continuously. The timeout
+                for the advertising can be adjusted by modifying the following parameter:</p>
+            <div
+                class="content-scrollable-wrapper content-scrollable-wrapper-scrolled"
+                style="max-width: 100%; overflow: auto; max-height: 413.6px;">
+                <pre><code>#define APP_ADV_TIMEOUT_IN_SECONDS           180                                        /**&lt; The advertising timeout in units of seconds. */
 </code></pre>
-        </div>
-        <p>Another parameter that effects the current consumption during advertising is
-            how many payload bytes are sent in each advertising packet. It is e.g. typically
-            20%-25% lower current consumption during advertising if 10 payload bytes are
-            sent in each advertising packet than the maximum of 31 bytes. Therefore, it may
-            be beneficial in terms of current consumption to only place primary advertising
-            data in the advertising packet and place all secondary data in the scan response
-            packet, as advertising packets are sent much more frequently than scan response
-            packets.</p>
-        <h2>
-            <strong>LDO mode vs Low Voltage mode vs DCDC mode</strong>
-        </h2>
-        <p>The three different modes are described in the nRF51 Series Reference Manual,
-            Power chapter. Schematics for the three different modes are shown in the
-            nRF51822 Product Specification (PS), Reference Circuitry chapter.</p>
-        <p>The specified current consumption is 0.6uA for System Off mode and no RAM
-            retention but if you operate it it low voltage mode it is 1.6uA, refering to
-            note 1 in table 27 in the PS v2.0. So. If you intend to use external switching
-            regulator you could possibly save some current in low voltage mode for the
-            reason that it accepts supply power down to 1.75V, but then you have 1uA higher
-            current consumption in both System On and System Off modes. Since you can run
-            the LDO mode almost as low, or down to 1.80V, I would assume that choosing the
-            LDO option provides lower current consumption for most applications.</p>
-        <p>The internal DCDC converter can potentially decrease power consumption of the
-            device. For explanation how a DCDC converter potentially lowers current
-            consumpiton, look a
-            <a
-                href="https://devzone.nordicsemi.com/question/18574/nrf51822-power-consumption-when-ble-advertisingconnected/?answer=18589#post-id-18589">this thread</a>.</p>
-        <p>The DCDC is safe to use with the third revision nRF51 hardware and
-            softdevices S110 8.0.0, S120 2.0.0, S130 1.0.0, S210 5.0.0, S310 3.0.0 or more
-            recent softdevices. The DCDC mode can also be used safely with third revision
-            nRF51 for proprietary protocols. For the second revision of the nRF51 hardware,
-            or softdevices older than mentioned above, we do not recommend customers to use
-            the DC/DC together with the BLE or ANT softdevices, as this has been discovered
-            to create radio disturbances. The DCDC can optionally be used with propriatery
-            protocol after carefully considering its operation limitations described in the
-            <a
-                href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822/nRF51-RM/20337">nRF51 Series Reference Manual</a>
-            version 2.1, Power chapter. Further recommendation for the DCDC mode is given on
-            <a href="http://devzone.nordicsemi.com/index.php/ldo-vs-dcdc-nrf51822">this thread</a>
-        </p>
-        <h2>
-            <strong>Compiler optimization</strong>
-        </h2>
-        <p>Enable compiler optimization in order for you application to be executed in
-            as few instructions as possible. This will make the code execute faster and
-            finish sooner and will therefore save power. To enable compiler optimization in
-            Keil, select Options for Target -&gt; C/C++ tab and set Optimization to “Level
-            3” and check “Optimize for Time”. In order for you to efficiently debug the
-            application code in Keil, the setting should be however Optimization: “Level 0”
-            and “Optimize for Time” should be unchecked.</p>
-        <h2>
-            <strong>Execute code from RAM</strong>
-        </h2>
-        <p>According to nRF51822/nRF51422 PS v3.1 table 34, current consumption can be
-            decreased by executing code from RAM instead of from flash. How to execute code
-            from RAM is described
-            <a
-                href="https://devzone.nordicsemi.com/question/28726/how-to-execute-code-from-ram-on-nrf51/">here</a>.</p>
-        <h2>
-            <strong>Setup of SPI, UART, TWI interfaces</strong>
-        </h2>
-        <p>Since the SPI, UART and TWI more or less have the same current consumption
-            for different transmission speeds (see nRF51822 PS, “Electrical Specifications”
-            chapter) it is most energy efficient to choose maximum transmission speed. This
-            will require the SPI/UART/TWI to be enabled for a minimal time, therefore saving
-            current. Disabling a peripheral is usually done by writing a Disabled value to
-            the peripheral's ENABLE register, and will ensure that they don't keep the clock
-            running when it isn't actually needed. More general information for
-            enabling/disabling peripherals is given on
-            <a
-                href="https://devzone.nordicsemi.com/question/1316/what-is-the-power-and-clock-model-of-peripheral-in-nrf51/">this thread</a>.</p>
-        <p>
-            <strong>Low Power UART</strong>
-            When you enable the UART on the nRF51822, it will consume a lot of current, ~1mA
-            constantly. The strategy is to only enable the UART when data transmission is
-            needed. There are primarily two methods for achieving this, one is to manually
-            configure two GPIO's for controlling this, second method is to enable the UART
-            in LOW_POWER mode, an UART example with low power mode is available on
-            <a href="https://github.com/NordicSemiconductor/nrf51-UART-examples">Nordic's Github</a>. The LOW_POWER mode is implemented in nRF51 SDK 9.0.0 and older SDKs.</p>
-        <p>The LOW POWER example will have flow control enabled in a specific LOW POWER
-            mode where the nRF51822 is woken up and UART is enabled when CTS goes low.
-            nRF51822 will set RTS low when it is ready to receive data. So the peer UART
-            device must set nRF51822 CTS low when sending data to nRF51822 and set it high
-            again when finished transmitting data. Further information on the functionality
-            is given in the Readme for the
-            <a href="https://github.com/NordicSemiconductor/nrf51-UART-examples">UART Low Power example</a>.</p>
-        <p>To Enable the UART, both RX and TX, execute the following code:</p>
-        <div
-            class="content-scrollable-wrapper"
-            style="max-width: 100%; overflow: auto; max-height: none;">
-            <pre><code>NRF_UART0-&gt;ENABLE = 1;
+            </div>
+            <p>Another parameter that effects the current consumption during advertising is
+                how many payload bytes are sent in each advertising packet. It is e.g. typically
+                20%-25% lower current consumption during advertising if 10 payload bytes are
+                sent in each advertising packet than the maximum of 31 bytes. Therefore, it may
+                be beneficial in terms of current consumption to only place primary advertising
+                data in the advertising packet and place all secondary data in the scan response
+                packet, as advertising packets are sent much more frequently than scan response
+                packets.</p>
+            <h2>
+                <strong>LDO mode vs Low Voltage mode vs DCDC mode</strong>
+            </h2>
+            <p>The three different modes are described in the nRF51 Series Reference Manual,
+                Power chapter. Schematics for the three different modes are shown in the
+                nRF51822 Product Specification (PS), Reference Circuitry chapter.</p>
+            <p>The specified current consumption is 0.6uA for System Off mode and no RAM
+                retention but if you operate it it low voltage mode it is 1.6uA, refering to
+                note 1 in table 27 in the PS v2.0. So. If you intend to use external switching
+                regulator you could possibly save some current in low voltage mode for the
+                reason that it accepts supply power down to 1.75V, but then you have 1uA higher
+                current consumption in both System On and System Off modes. Since you can run
+                the LDO mode almost as low, or down to 1.80V, I would assume that choosing the
+                LDO option provides lower current consumption for most applications.</p>
+            <p>The internal DCDC converter can potentially decrease power consumption of the
+                device. For explanation how a DCDC converter potentially lowers current
+                consumpiton, look a
+                <a
+                    href="https://devzone.nordicsemi.com/question/18574/nrf51822-power-consumption-when-ble-advertisingconnected/?answer=18589#post-id-18589">this thread</a>.</p>
+            <p>The DCDC is safe to use with the third revision nRF51 hardware and
+                softdevices S110 8.0.0, S120 2.0.0, S130 1.0.0, S210 5.0.0, S310 3.0.0 or more
+                recent softdevices. The DCDC mode can also be used safely with third revision
+                nRF51 for proprietary protocols. For the second revision of the nRF51 hardware,
+                or softdevices older than mentioned above, we do not recommend customers to use
+                the DC/DC together with the BLE or ANT softdevices, as this has been discovered
+                to create radio disturbances. The DCDC can optionally be used with propriatery
+                protocol after carefully considering its operation limitations described in the
+                <a
+                    href="https://www.nordicsemi.com/eng/nordic/Products/nRF51822/nRF51-RM/20337">nRF51 Series Reference Manual</a>
+                version 2.1, Power chapter. Further recommendation for the DCDC mode is given on
+                <a href="http://devzone.nordicsemi.com/index.php/ldo-vs-dcdc-nrf51822">this thread</a>
+            </p>
+            <h2>
+                <strong>Compiler optimization</strong>
+            </h2>
+            <p>Enable compiler optimization in order for you application to be executed in
+                as few instructions as possible. This will make the code execute faster and
+                finish sooner and will therefore save power. To enable compiler optimization in
+                Keil, select Options for Target -&gt; C/C++ tab and set Optimization to “Level
+                3” and check “Optimize for Time”. In order for you to efficiently debug the
+                application code in Keil, the setting should be however Optimization: “Level 0”
+                and “Optimize for Time” should be unchecked.</p>
+            <h2>
+                <strong>Execute code from RAM</strong>
+            </h2>
+            <p>According to nRF51822/nRF51422 PS v3.1 table 34, current consumption can be
+                decreased by executing code from RAM instead of from flash. How to execute code
+                from RAM is described
+                <a
+                    href="https://devzone.nordicsemi.com/question/28726/how-to-execute-code-from-ram-on-nrf51/">here</a>.</p>
+            <h2>
+                <strong>Setup of SPI, UART, TWI interfaces</strong>
+            </h2>
+            <p>Since the SPI, UART and TWI more or less have the same current consumption
+                for different transmission speeds (see nRF51822 PS, “Electrical Specifications”
+                chapter) it is most energy efficient to choose maximum transmission speed. This
+                will require the SPI/UART/TWI to be enabled for a minimal time, therefore saving
+                current. Disabling a peripheral is usually done by writing a Disabled value to
+                the peripheral's ENABLE register, and will ensure that they don't keep the clock
+                running when it isn't actually needed. More general information for
+                enabling/disabling peripherals is given on
+                <a
+                    href="https://devzone.nordicsemi.com/question/1316/what-is-the-power-and-clock-model-of-peripheral-in-nrf51/">this thread</a>.</p>
+            <p>
+                <strong>Low Power UART</strong>
+                When you enable the UART on the nRF51822, it will consume a lot of current, ~1mA
+                constantly. The strategy is to only enable the UART when data transmission is
+                needed. There are primarily two methods for achieving this, one is to manually
+                configure two GPIO's for controlling this, second method is to enable the UART
+                in LOW_POWER mode, an UART example with low power mode is available on
+                <a href="https://github.com/NordicSemiconductor/nrf51-UART-examples">Nordic's Github</a>. The LOW_POWER mode is implemented in nRF51 SDK 9.0.0 and older SDKs.</p>
+            <p>The LOW POWER example will have flow control enabled in a specific LOW POWER
+                mode where the nRF51822 is woken up and UART is enabled when CTS goes low.
+                nRF51822 will set RTS low when it is ready to receive data. So the peer UART
+                device must set nRF51822 CTS low when sending data to nRF51822 and set it high
+                again when finished transmitting data. Further information on the functionality
+                is given in the Readme for the
+                <a href="https://github.com/NordicSemiconductor/nrf51-UART-examples">UART Low Power example</a>.</p>
+            <p>To Enable the UART, both RX and TX, execute the following code:</p>
+            <div
+                class="content-scrollable-wrapper"
+                style="max-width: 100%; overflow: auto; max-height: none;">
+                <pre><code>NRF_UART0-&gt;ENABLE = 1;
 NRF_UART0-&gt;TASKS_STARTTX = 1;
 NRF_UART0-&gt;TASKS_STARTRX = 1;
 </code></pre>
-        </div>
-        <p>If you only need to receive data, enable the UART and only start RX, it will
-            consume less current than starting both TX and RX. Similarly, if you only need
-            to transmit data, enable the UART and only start TX.</p>
-        <p>To disable the UART, execute the following code:</p>
-        <div
-            class="content-scrollable-wrapper"
-            style="max-width: 100%; overflow: auto; max-height: none;">
-            <pre><code>NRF_UART0-&gt;TASKS_STOPTX = 1;
+            </div>
+            <p>If you only need to receive data, enable the UART and only start RX, it will
+                consume less current than starting both TX and RX. Similarly, if you only need
+                to transmit data, enable the UART and only start TX.</p>
+            <p>To disable the UART, execute the following code:</p>
+            <div
+                class="content-scrollable-wrapper"
+                style="max-width: 100%; overflow: auto; max-height: none;">
+                <pre><code>NRF_UART0-&gt;TASKS_STOPTX = 1;
 NRF_UART0-&gt;TASKS_STOPRX = 1;
 NRF_UART0-&gt;ENABLE = 0;
 </code></pre>
-        </div>
-        <p>
-            <strong>Low Power SPI master</strong>
-            Similar to the UART, the SPI is high current when enabled. To enable low current
-            consumption, you should therefore only enable the SPI when there is data to be
-            transmitted.</p>
-        <p>To enable the SPI peripheral 0, execute the following code:</p>
-        <div
-            class="content-scrollable-wrapper"
-            style="max-width: 100%; overflow: auto; max-height: none;">
-            <pre><code>NRF_SPI0-&gt;ENABLE = 1;
+            </div>
+            <p>
+                <strong>Low Power SPI master</strong>
+                Similar to the UART, the SPI is high current when enabled. To enable low current
+                consumption, you should therefore only enable the SPI when there is data to be
+                transmitted.</p>
+            <p>To enable the SPI peripheral 0, execute the following code:</p>
+            <div
+                class="content-scrollable-wrapper"
+                style="max-width: 100%; overflow: auto; max-height: none;">
+                <pre><code>NRF_SPI0-&gt;ENABLE = 1;
 </code></pre>
-        </div>
-        <p>To disable the SPI peripheral 0, execute the following code:</p>
-        <div
-            class="content-scrollable-wrapper"
-            style="max-width: 100%; overflow: auto; max-height: none;">
-            <pre><code>NRF_SPI0-&gt;ENABLE = 0;
+            </div>
+            <p>To disable the SPI peripheral 0, execute the following code:</p>
+            <div
+                class="content-scrollable-wrapper"
+                style="max-width: 100%; overflow: auto; max-height: none;">
+                <pre><code>NRF_SPI0-&gt;ENABLE = 0;
 </code></pre>
+            </div>
+            <p>
+                <strong>Low Power SPI slave</strong>
+                The SPI slave peripheral is low power by default, meaning it consumes close to
+                no current when the CSN line is high (chip select for the nRF51 is not set by
+                the connected SPI master device). When the CSN line is set low by the SPI
+                master, the SPI slave is enabled and consumes ~1mA. The SPI slave goes back into
+                low power state when the SPI master ends the SPI transaction by setting the CSN
+                line high.</p>
+            <h2>
+                <strong>GPIOTE</strong>
+            </h2>
+            <p>For info on current consumption of the GPIOTE peripheral and how to set it up
+                for low current applications, take a look at
+                <a
+                    href="https://devzone.nordicsemi.com/question/1805/current-consumption-when-using-rtc-ppi-and-gpiote/?answer=18533#post-id-18533">this thread</a>
+            </p>
+            <div style="clear:both;"></div>
         </div>
-        <p>
-            <strong>Low Power SPI slave</strong>
-            The SPI slave peripheral is low power by default, meaning it consumes close to
-            no current when the CSN line is high (chip select for the nRF51 is not set by
-            the connected SPI master device). When the CSN line is set low by the SPI
-            master, the SPI slave is enabled and consumes ~1mA. The SPI slave goes back into
-            low power state when the SPI master ends the SPI transaction by setting the CSN
-            line high.</p>
-        <h2>
-            <strong>GPIOTE</strong>
-        </h2>
-        <p>For info on current consumption of the GPIOTE peripheral and how to set it up
-            for low current applications, take a look at
-            <a
-                href="https://devzone.nordicsemi.com/question/1805/current-consumption-when-using-rtc-ppi-and-gpiote/?answer=18533#post-id-18533">this thread</a>
-        </p>
-        <div style="clear:both;"></div>
-    </div>
